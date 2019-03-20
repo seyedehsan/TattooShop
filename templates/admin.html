@@ -1,0 +1,105 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<br>
+
+
+<div class="container">
+  <h2>Add a new link</h2>
+  <form action="" method="POST">
+    <div class="form-group">
+      <label for="name">Title:</label>
+      <input type="text" class="form-control" id="name" placeholder="link caption" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="href">Href:</label>
+      <input type="text" class="form-control" id="href" placeholder="link address" name="href" required>
+    </div>
+    <div class="form-group">
+      <label for="authorisation">Authorisation:</label>
+      <select class="form-control" id="authorisation" name="authorisation">
+        {% for acc in access %}
+        <option value='{{ acc.id }}'>{{ acc.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<br>
+<div class="container">
+  <table class="table table-condensed table-hover">
+    <thead>
+      <tr class="bg-warning">
+        <th>Caption</th>
+        <th>Href</th>
+        <th>Accessibility</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    {% for nav in rows %}
+    <form action="" method="POST">
+    <tr>
+      <td>{{ nav.name }}</td>
+      <td>{{ nav.href }}</td>
+      <td>{{ nav.authorisation }}</td>
+      <td class="align-text-center">
+        <a href='adelete.php?id={{ nav.id  }}' class="text-warning " data-toggle="tooltip" title="Delete Record"><i class="far fa-trash-alt fa-lg"></i></a>
+        <a href='editnav.php?id={{ nav.id  }}' class="text-warning" data-toggle="tooltip" title="Edit Record"><i class="fas fa-edit fa-lg"></i></a>
+      </td>
+    </tr>
+  </form>
+    {% endfor %}
+
+<!-- Modal sign in -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-body text-dark" id="exampleModalLabel">Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Login form -->
+          <form action='login.php' method="POST">
+            <div class="form-group">
+              <label for="name" class="text-dark">Name:</label>
+              <input type="text" class="form-control" name='name' id="name" value='{{ nav.name }}' required>
+            </div>
+            <div class="form-group">
+              <label for="href" class="text-dark">Href:</label>
+              <input type="text" class="form-control" name='href' id="href" value='{{ nav.href }}' required>
+            </div>
+            <div class="form-group">
+                <label for="authorisation">Authorisation:</label>
+                <select class="form-control" id="authorisation" name="authorisation">
+                  {% for acc in access %}
+                  <option value='{{ acc.id }}'>{{ acc.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </form>
+          <!-- End Login form -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </table>
+
+
+
+
+
+
+
+
+
+</div>
+<br><br><br>
+{% endblock %}

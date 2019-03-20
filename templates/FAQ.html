@@ -1,0 +1,42 @@
+{% extends "main.html" %} {% block title %} Daniel Pool{% endblock %} {% block content %}
+
+
+<section id="darkish">
+    <br>
+    <br>
+    <h1 class="text-center">
+        <b>FAQ</b>
+    </h1>
+    <br>
+
+    <!--Accordeon boxes-->
+    <section>
+           
+        <div class="container">
+                
+            <div id="accordion">
+                
+                <div class="card">
+                        {% for row in questions %}
+                    <div class="card-header bg-warning">
+                        <a class="card-link text-dark" data-toggle="collapse" href="#collapse{{row.ID}}">
+                            <strong>{{ row.Question }}</strong>
+                        </a>
+                    </div>
+                    <div id="collapse{{row.ID}}" class="collapse" data-parent="#accordion">
+                        <div class="card-body text-dark text-justify">
+                            {{ row.Answer }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </section>
+
+
+
+    <br/> {% endblock %}

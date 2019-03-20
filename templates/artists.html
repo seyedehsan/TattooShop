@@ -1,0 +1,51 @@
+{% extends "main.html" %} {% block title %} Daniel Pool{% endblock %} {% block content %}
+
+
+<!--- Meet the team -->
+
+<div class="container-fluid padding" id="artist">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Meet our artists</h1>
+        </div>
+        <hr>
+    </div>
+</div>
+
+    <!--- Cards -->
+    <div class="container-fluid">
+        
+        <div class="row">
+                {% for row in artists%} {% set firstname = row.FirstName %} {% set lastname = row.LastName %}
+            <div class="col-md-3 col-sm-6 ">
+                <div class="card bg-transparent border-warning">
+                    {% if logged_in %}
+                    <a href="calendar.php">
+                        <img class="img-fluid card-img-top" src="images/artist1_BW.jpg">
+                    </a>
+                    {% else %}
+                    <a href="#" data-toggle="modal" data-target="#signin">
+                        <img class="img-fluid card-img-top" src="images/artist1_BW.jpg">
+                    </a>
+                    {% endif %}
+                    <div class="card-body ">
+                        <h4 class="card-title">{{ firstname ~ " " ~ lastname }}</h4>
+                        <p class="card-text">{{ row.bio }}</p>
+                        {% if logged_in %}
+                        <a href="calendar.php" data-toggle="modal" data-target="#signin" class="btn btn-outline-secondary bg-warning text-dark">Book Appointment</a>
+                        {% else %}
+                        <a href="#" data-toggle="modal" data-target="#signin" class="btn btn-outline-secondary bg-warning text-dark">Book Appointment</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+    
+
+
+<br>
+<br>
+<br> {% endblock %}

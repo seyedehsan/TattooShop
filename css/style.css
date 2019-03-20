@@ -1,0 +1,21 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    color: aliceblue;
+    background: url(../images/4.jpg) no-repeat fixed;
+}
+#home{
+    background: url(../images/3.jpg) no-repeat fixed; 
+    height: 100%; 
+    position: relative; 
+    width: 100%; 
+    background-size: cover;
+}
+.landing-text{
+    position: absolute;
+    display: table-cell;
+text-align: center;
+vertical-align: middle;
+top: 40%;
+margin-left: 10%;
+}

@@ -1,0 +1,69 @@
+{% extends "main.html" %} 
+
+
+
+
+{% block content %}
+<div id="div4" class="container p-5">
+    <h1 class="display-4">Location</h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11204.671943056612!2d-73.9418622!3d45.405952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd807d74a59dcffcf!2sJohn+Abbott+College!5e0!3m2!1sen!2sca!4v1530162614554"
+      width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+
+
+  <!--Contact us-->
+  <div class="container pb-5" id="contactus">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 m-auto">
+        <div class="contact-form">
+          <br>
+          <br>
+          <h1>Contact Us</h1>
+          <p class="hint-text">Do you have other questions? Don’t worry, there aren’t any dumb questions. Just fill out the form below and we’ll
+            get back to you as soon as possible (usually within one business day).We'd love to hear from you, please drop
+            us a line if you've any query or question.</p>
+          <form action="" method="post">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="inputName">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="inputPhone">Phone</label>
+                  <input type="tel" class="form-control" id="phone" name='phone' required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputSubject">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="inputMessage">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary bg-default mb-5">
+              <i class="fab fa-telegram-plane"></i> Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<br>
+<br>
+
+
+
+{% endblock %}

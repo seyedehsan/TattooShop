@@ -1,0 +1,155 @@
+{% extends "main.html" %} 
+
+{% block title %} Daniel Pool{% endblock %} 
+
+{% block content %}
+<article>
+    <form name="bookAppointment" id="bookAppointment" method="post" action="">
+        <h4 class="text-warning">Appointment</h4>
+        
+        
+        <div class="form-row">
+            <div class="form-group col-lg-6">
+                <label for="FirstName">First Name</label>
+                </br>
+                <input type="text" name="first_name" class="form-control" id="FirstName" value="{{ first_name }}" readonly>
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="LastName">Last Name</label>
+                </br>
+                
+                <input type="text" name="last_name" class="form-control" id="LastName" value="{{ last_name }}" readonly>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-lg-6">
+                <label for="dateBirth">Date of Birth</label>
+                </br>
+                <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                    <input type="text" id="dateBirth" name="date_birth" value="{{ birth_date }}" class="form-control datetimepicker-input" data-target="#datetimepicker"
+                    readonly/>
+                    <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
+                        <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="Procedure">Procedure</label>
+                </br>
+                {% if messages.procedure != "" %}
+                {{ messages.procedure }}
+                {% endif %}
+                <select class="custom-select" id="Procedure" name="procedure">
+                    <option value="">---</option>
+                    {% for row in procedures %}
+                    {% if row.ID == procedureID%}
+                    <option value="{{ row.ID }}" selected>{{ row.ProcedureName }}</option>
+                    {% else %}
+                    <option value="{{ row.ID }}" >{{ row.ProcedureName }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-lg-4">
+                <label for="AppointmentDate">Appointment Date</label>
+                </br>
+                {% if messages.appointment_date != "" %}
+                {{ messages.appointment_date }}
+                {% endif %}
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="date" id="AppointmentDate" name="appointment_date" value="{{ appointment_date }}" class="form-control datetimepicker-input"
+                        data-target="#datetimepicker1"/>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-lg-4">
+                <label for="AppointmentTime">Appointment Time</label>
+                </br>
+                {% if messages.appointment_time != "" %}
+                {{ messages.appointment_time }}
+                {% endif %}
+                <select class="custom-select" id="AppointmentTime" name="appointment_time">
+                        <option value="">---</option>
+                        {% for row in times %}
+                        {% if row.ID == appointment_timeID %} 
+                        <option value="{{ row.ID }}" selected>{{ row.AppointmentTime }}</option>
+                        {% else %}
+                        <option value="{{ row.ID }}" >{{ row.AppointmentTime }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+            </div>
+            <div class="form-group col-lg-4">
+                <label for="TattoArtist">Tattoo Artist</label>
+                </br>
+                {% if messages.tattoo_artist != "" %}
+                {{ messages.tattoo_artist }}
+                {% endif %}
+                <select class="custom-select" id="TattoArtist" name="tattoo_artist">
+                    <option value="">---</option>
+                    {% for row in artists %} 
+                    {% set firstname = row.FirstName %} 
+                    {% set lastname = row.LastName %}
+                    {% if row.ID == artistID %}
+                    <option value="{{ row.ID }}" selected>{{ firstname ~ " " ~ lastname }}</option>
+                    {% else %}
+                    <option value="{{ row.ID }}" >{{ firstname ~ " " ~ lastname }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-lg-6">
+                <label for="Email">Email</label>
+                </br>
+                {% if messages.email != "" %}
+                {{ messages.email }}
+                {% endif %}
+                <input type="email" name="email" class="form-control" id="Email" value="{{ email }}" readonly>
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="Phone">Phone</label>
+                </br>
+                {% if messages.phone != "" %}
+                {{ messages.phone }}
+                {% endif %}
+                <input type="text" name="phone" class="form-control" id="Phone" value="{{ phone }}" readonly>
+            </div>
+        </div>
+            {% if parent_ID != 1 %}
+            <div class="form-row">
+                <div class="form-group col-lg-4">
+                    <label for="ParentName">Parent Name</label>
+                    <input type="text" name="parent_name" class="form-control" id="ParentName" value="{{ parent_name }}">
+                </div>
+                <div class="form-group col-lg-4">
+                    <label for="ParentPhone">Phone</label>
+                    <input type="text" name="parent_phone" class="form-control" id="ParentPhone" value="{{ parent_phone }}">
+                </div>
+                <div class="form-group col-lg-4">
+                    <label for="ParentEmail">Email</label>
+                    <input type="text" name="parent_email" class="form-control" id="ParentEmail" value="{{ parent_email }}">
+                </div>
+            </div>
+            {% endif %}
+            <div class="form-row text-center lastRow">
+                <div class="form-group col-lg-12">
+                    <button type="submit" id="submitbtn" class="btn btn-lg bg-warning text-center">Book</button>
+                    <button type="reset" class="btn btn-lg bg-warning text-center">Reset</button>
+                </div>
+            </div>
+
+    </form>
+
+</article>
+
+{% endblock %}

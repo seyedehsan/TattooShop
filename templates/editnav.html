@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<div class="container">
+        <br>
+        <br><br>
+    <h2>Edit nav Item</h2>
+    <br>
+    <br><br>
+    <form action="" method="POST">
+      <div class="form-group">
+        <label for="name">Title:</label>
+        <input type="text" class="form-control" id="name" placeholder="link caption" name="name"  value="{{ row.name }}" required>
+      </div>
+      <div class="form-group">
+        <label for="href">Href:</label>
+        <input type="text" class="form-control" id="href" placeholder="link address" name="href" value="{{ row.href }}" required>
+      </div>
+      <div class="form-group">
+        <label for="authorisation">Authorisation:</label>
+        <select class="form-control" id="authorisation" name="authorisation">
+          {% for acc in access %}
+          <option value='{{ acc.id }}'>{{ acc.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <br>
+  <br><br><br>
+{% endblock %}

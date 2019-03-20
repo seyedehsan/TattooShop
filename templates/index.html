@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div id="home">
+    <div class="landing-text">
+        <img src="images/logowhite.png" alt="logo">
+        <h1>Tattoo Shop</h1>
+        <h4>You are a Masterpiece</h4>
+        <a href='#div1'>
+          <button type="button" class="btn btn-primary bg-warning">
+            <i class="fas fa-chevron-down"></i> Get Started</button>
+        </a>
+  
+      </div>
+
+</div>
+<div class="container p-5 padding" id="div1">
+    <div class="row welcome text-center">
+      <div class="col-12">
+        <h1 class="display-4">Whatever you desire</h1>
+        <hr>
+        <div class="col-12 text-justify">
+          <p class="lead">We encourage you to bring reference material with you. While we prefer you bring imagery other than photos of other
+            people’s tattoos, you can bring anything that helps describe what you’re looking to do. We will not copy another
+            person’s tattoo, so be prepared for us to redraw anything so you end up with an original piece. A good example
+            would be if you wanted a flower, bring in photos of that flower you like, as opposed to photos of tattoos of
+            that flower. We can also draw for you from scratch if you know what you want but don’t have any imagery for us
+            to look at. For this, a consultation prior to the tattoo appointment is best (unless it’s super simple).</p>
+        </div>
+        <a href='#fixed'>
+          <button type="submit" class="btn btn-primary bg-default mb-5">
+            <i class="fas fa-chevron-right"></i> NEXT</button>
+        </a>
+      </div>
+      <!-- Media objects-->
+      <section>
+          <h5 class="display-4">Testimonials</h5>
+        <div class="row">
+          
+          <div class="col-xs-12 col-sm-12 col-md-6">
+             
+            <div class="media border p-3">
+              <img src="images/testimonial1.jpg" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+              <div class="media-body text-justify">
+                <h4>John Doe
+                  <small>
+                    <i>Posted on February 19, 2018</i>
+                  </small>
+                </h4>
+                <p>This place is great! Adam did my tattoo. He’s excellent at what he does. I felt very comfortable with him.
+                  The tattoo didn’t hurt at all. Days before the session he emailed me his sketch and worked with me (even
+                  with all the back and forth of me changing my idea..sorry!!) And the end result was amazing. Ill be back
+                  for more for sure!!! If you were contemplating getting to get a tattoo here I highly recommend it. Best
+                  thing is to call and book an appointment, the weekends seem very busy. Adam you truly are amazing!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="media border p-3 padding">
+              <img src="images/testimonial2.jpg" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+              <div class="media-body text-justify">
+                <h4>Tim Gonzales
+                  <small>
+                    <i>Posted on March 2, 2018</i>
+                  </small>
+                </h4>
+                <p>So, my husband and I left Brooklyn. *sob*. We had been planning on getting a marriage tattoo, but weren’t
+                  able to decide on a design until finally we realized DUH let’s get the Brooklyn Bridge. After all, Brooklyn
+                  is where we met, got married (practically under the bridge) and it’s our favorite place on Earth. Before
+                  we moved we decided to get our tattoos in Brooklyn and started searching for the perfect design. As fate
+                  would have it, we each found the perfect designs (thanks to googling “Brooklyn Bridge tattoo”).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    </section>
+  </div>
+  <div id="fixed">
+      <div class="contentbox m-5 p-5">
+        <div class="row padding">
+          <div class="container col-md-12 col-lg-6 col-12 text-justify">
+            <h2>Temporary tattoos</h2>
+            <p>
+              <b>Henna-based tattoos: </b>henna is a plant-derived substance which is painted on the skin, staining it a reddish-orange-to-brown
+              color. Because of the semi-permanent nature of henna, they lack the realistic colors typical of decal temporary
+              tattoos. Due to the time-consuming application process, it is a relatively poor option for children</p>
+            <p>
+              <b>Decal-style temporary tattoos: </b> Decal (press-on) temporary tattoos are used to decorate any part of the body.
+              They may last for a day or for more than a week</p>
+            <p>
+              <b>Airbrush: </b> airbrush temporary tattoos are less likely to achieve the look of a permanent tattoo, and may
+              not last as long as press-on temporary tattoos.Like decal tattoos, airbrush temporary tattoos also are easily
+              removed with rubbing alcohol or baby oil.</p>
+            <a href="#home" class="btn btn-primary">Back</a>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}

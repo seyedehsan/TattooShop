@@ -1,0 +1,60 @@
+{% extends 'main.html' %} {% block content %}
+<br>
+
+<div class="container">
+    <h4>Your appointments:</h4>
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr class="bg-warning">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        {% for row in contactus %} 
+        {% if row.status == 1 %}
+        <tr class="text-muted">
+            <td>{{ row.name}}</td>
+            <td>{{ row.email }} </td>
+            <td>{{ row.phone }}</td>
+            <td>{{ row.subject }}</td>
+            <td>{{ row.message }}</td>
+            <td>
+            <a href="" class="text-warning " data-toggle="tooltip" title="Delete Contact">
+                <i class="far fa-trash-alt fa-lg"></i>
+            </a>
+            </td>
+            {% else %}
+            <tr>
+                <td>{{ row.name}}</td>
+                <td>{{ row.email }} </td>
+                <td>{{ row.phone }}</td>
+                <td>{{ row.subject }}</td>
+                <td>{{ row.message }}</td>
+                <td class="align-text-center">
+                    <a href="" class="text-warning" data-toggle="tooltip" title="Reply contact">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
+                    <a href="admin_contact.php?id={{ row.id }}" class="text-warning" data-toggle="tooltip" title="Contacted">
+                        <i class="far fa-check-square fa-lg"></i>
+                    </a>
+                    <a href="" class="text-warning " data-toggle="tooltip" title="Delete Contact">
+                        <i class="far fa-trash-alt fa-lg"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endif %} 
+            {% endfor %}
+
+
+    </table>
+
+
+</div>
+
+<br>
+<br>
+{% endblock %}
